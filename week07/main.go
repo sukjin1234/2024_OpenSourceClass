@@ -18,11 +18,12 @@ func main() {
 	}
 
 	i = strings.TrimSpace(i)                  // python strip
-	score, err := strconv.ParseInt(i, 16, 32) // 문자열 -> 정수 (변환할 변수, 진수크기, 비트크기)
-	if score >= 60 {
-		fmt.Printf("%d\n", score)
-		fmt.Println("A")
+	score, err := strconv.ParseInt(i, 10, 32) // 문자열 -> 정수 (변환할 변수, 진수크기, 비트크기)
+	var aOrNot string
+	if score >= 90 {
+		aOrNot = "A"
 	} else {
-		fmt.Println("BCDF")
+		aOrNot = "BCDF"
 	}
+	fmt.Printf("%d  %s\n", score, aOrNot)
 }
