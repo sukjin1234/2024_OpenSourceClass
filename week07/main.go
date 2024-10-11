@@ -1,12 +1,15 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
-	"strings"
+	"os"
 )
 
 func main() {
-	var broken string = "1 . 2 . 3 . 4"
-	r := strings.NewReplacer(".", ",")
-	fmt.Println(r.Replace(broken))
+	input := bufio.NewReader(os.Stdin)
+	//i, err := r.ReadString('\n')
+	fmt.Print("input your name:")
+	name, _ := input.ReadString('\n')
+	fmt.Print(name)
 }
