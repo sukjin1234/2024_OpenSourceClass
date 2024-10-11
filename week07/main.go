@@ -3,13 +3,19 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"log"
 	"os"
 )
 
 func main() {
 	input := bufio.NewReader(os.Stdin)
-	//i, err := r.ReadString('\n')
 	fmt.Print("input your name:")
-	name, _ := input.ReadString('\n')
-	fmt.Print(name)
+	name, err := input.ReadString('\n')
+	//name, _ := input.ReadString('\n')
+
+	if err != nil {
+		log.Fatal(err)
+	} else {
+		fmt.Print(name)
+	}
 }
