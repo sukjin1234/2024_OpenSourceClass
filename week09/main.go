@@ -15,7 +15,6 @@ func main() {
 
 	rand.Seed(time.Now().Unix())
 	answer := rand.Intn(100) + 1 //rand.Intn(0~n-1)
-	fmt.Printf("%d\n", answer)
 	win := false
 	for guesses := 0; guesses < 3; guesses++ {
 		fmt.Printf("%d번 남음, input your score : ", 3-guesses)
@@ -36,9 +35,9 @@ func main() {
 			fmt.Println("정답")
 			win = true
 			break
-		} else if answer > score {
-			fmt.Println("Low")
 		} else if answer < score {
+			fmt.Println("Low")
+		} else if answer > score {
 			fmt.Println("High")
 		}
 
@@ -46,6 +45,6 @@ func main() {
 	if win {
 		fmt.Println("Win")
 	} else {
-		fmt.Println("Lose")
+		fmt.Printf("Lose answer is %d", answer)
 	}
 }
