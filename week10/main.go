@@ -20,13 +20,13 @@ func main() {
 	i = strings.TrimSpace(i) // python strip
 	score, err := strconv.Atoi(i)
 	count := 0
-	for j := 1; j <= score; j++ {
+	for j := 2; j < score; j++ {
 		if score%j == 0 {
 			count++
 		}
 	}
 
-	if count == 2 {
+	if count == 0 {
 		fmt.Printf("%d 소수", score)
 	} else {
 		fmt.Printf("%d 소수 X", score)
