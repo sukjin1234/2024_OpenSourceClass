@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"fmt"
 	"log"
-	"math"
 	"os"
 	"strconv"
 	"strings"
@@ -26,8 +25,13 @@ func main() {
 	// 논리적 오류 해결
 	if score < 2 { // 1 보다 큰 자연수중 1과 자신만을 약수로 가지는 수
 		isPrime = false
+	} else if score == 2 {
+		isPrime = true
+	} else if score%2 == 0 {
+		isPrime = false
 	} else {
-		for j := 2; j <= int(math.Sqrt(float64(score))); j++ {
+		//for j := 2; j <= int(math.Sqrt(float64(score))); j++ {
+		for j := 3; j*j <= score; j += 2 {
 			if score%j == 0 {
 				isPrime = false
 				break
