@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"log"
+	"math"
 	"os"
 	"strconv"
 	"strings"
@@ -26,17 +27,19 @@ func main() {
 	if score < 2 { // 1 보다 큰 자연수중 1과 자신만을 약수로 가지는 수
 		isPrime = false
 	} else {
-		for j := 2; j < score; j++ {
+		for j := 2; j <= int(math.Sqrt(float64(score))); j++ {
 			if score%j == 0 {
 				isPrime = false
+				break
 			}
+			fmt.Printf("%d ", j) //반복문 횟수 확인
 		}
 	}
 
 	if isPrime { // 비교 연산 제거
-		fmt.Printf("%d 소수", score)
+		fmt.Printf("[%d 소수]", score)
 	} else {
-		fmt.Printf("%d 소수 X", score)
+		fmt.Printf("[%d 소수 X]", score)
 	}
 
 }
