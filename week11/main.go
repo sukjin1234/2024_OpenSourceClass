@@ -29,32 +29,32 @@ func isPrime(n int) bool { //함수화
 	return true
 }
 
-func main() {
-	fmt.Print("첫 번째 정수(시작값) 입력: ")
+func getInteger() (int, error) {
 	r := bufio.NewReader(os.Stdin)
 	a, err := r.ReadString('\n')
 	if err != nil {
-		log.Fatal(err)
+		return 0, err
 	}
 
 	a = strings.TrimSpace(a) // python strip
-	n1, err := strconv.Atoi(a)
+	n, err := strconv.Atoi(a)
+	if err != nil {
+		return 0, err
+	}
+	return n, nil
+}
+
+func main() {
+	fmt.Print("첫 번째 정수(시작값) 입력: ")
+	n1, err := getInteger()
 	if err != nil {
 		log.Fatal(err)
 	}
 	fmt.Print("두 번째 정수(종료값) 입력: ")
-	b, err := r.ReadString('\n')
+	n2, err := getInteger()
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	b = strings.TrimSpace(b) // python strip
-	n2, err := strconv.Atoi(b)
-
-	if err != nil {
-		log.Fatal(err)
-	}
-
 	for i := n1; i <= n2; i++ {
 		if isPrime(i) { // 비교 연산 제거
 			fmt.Printf("%d ", i)
