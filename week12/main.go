@@ -21,7 +21,11 @@ func main() {
 	// fmt.Println(dates[0], dates[1], dates[2])
 	// fmt.Printf("%#v", dates) // %#v Array literal 형태로 출력
 
-	for i := 0; i < len(dates); i++ {
-		fmt.Println(i, dates[i])
+	// for i := 0; i < len(dates); i++ {
+	// 	fmt.Println(i, dates[i])
+	// }
+
+	for i, v := range dates { // python enumerate 와 비슷
+		fmt.Println(i, v)
 	}
 }
