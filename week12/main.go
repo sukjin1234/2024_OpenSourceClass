@@ -2,30 +2,19 @@ package main
 
 import (
 	"fmt"
-	"time"
+
+	"github.com/headfirstgo/keyboard"
 )
 
 func main() {
-	// var dates [3]time.Time
-	// dates[1] = time.Unix(1747920000, 0)
-	// fmt.Print(dates[1])
-
-	// var dates[3]time.Time = [3]time.Time{time.Unix(1, 0), time.Unix(1747920000, 0), time.Unix(1447920001, 0)}
-	// fmt.Print(dates[0], dates[1], dates[2])
-
-	dates := [3]time.Time{
-		time.Unix(1, 0),
-		time.Unix(1747920000, 0),
-		time.Unix(1447920001, 1), // 쉼표가 반드시 필요
+	var gpa [3]float64
+	// go get github.com/headfirstgo/keyboard
+	for i := 0; i < len(gpa); i++ {
+		fmt.Print("Input float number : ")
+		gpa[i], _ = keyboard.GetFloat()
 	}
-	// fmt.Println(dates[0], dates[1], dates[2])
-	// fmt.Printf("%#v", dates) // %#v Array literal 형태로 출력
-
-	// for i := 0; i < len(dates); i++ {
-	// 	fmt.Println(i, dates[i])
-	// }
-
-	for i, v := range dates { // python enumerate 와 비슷
-		fmt.Println(i, v)
+	for i, v := range gpa {
+		fmt.Printf("%d %f\n", i, v)
 	}
+
 }
