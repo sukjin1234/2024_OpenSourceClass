@@ -2,18 +2,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/headfirstgo/keyboard"
+	"reflect"
 )
 
 func main() {
-	var gpa [3]float64
-	// go get github.com/headfirstgo/keyboard
-	for i := 0; i < len(gpa); i++ {
-		fmt.Print("Input float number : ")
-		gpa[i], _ = keyboard.GetFloat()
-	}
-	for i, v := range gpa {
-		fmt.Printf("%d %f\n", i, v)
-	}
-
+	var gpa [5]float64 = [5]float64{3.5, 4.1, 4.5, 4.2, 3.9} // array
+	gpaSlice := gpa[1:4]                                     // gpaSlice = slice
+	fmt.Println(gpaSlice, reflect.TypeOf(gpaSlice))
+	fmt.Println(gpa, reflect.TypeOf(gpa))
 }
