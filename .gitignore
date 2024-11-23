@@ -1,3 +1,5 @@
 go.mod
 *.exe
 test.go
+greeting
+keyboard
