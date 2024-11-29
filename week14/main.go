@@ -1,22 +1,41 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-type student struct {
-	id   int
-	name string
-	gpa  float32
+type visitor struct {
+	age  int
+	cost int
+}
+
+func calculateCost(visitors []visitor) int {
+	totalCost := 0
+	for _, v := range visitors {
+		totalCost += v.cost
+	}
+	return totalCost
 }
 
 func main() {
-	var student1 student
-	student1.id = 20241234
-	student1.name = "whdo"
-	student1.gpa = 4.5
-	fmt.Printf("%d %s %f\n", student1.id, student1.name, student1.gpa)
-	var student2 student
-	student2.id = 20241234
-	student2.name = "dddd"
-	student2.gpa = 4.7
-	fmt.Printf("%d %s %f\n", student2.id, student2.name, student2.gpa)
+	var numVisitor int
+	fmt.Print("방분 인원 수 입력 : ")
+	fmt.Scanln(&numVisitor)
+	var vs []visitor
+	vs = make([]visitor, numVisitor)
+	for i := 0; i < numVisitor; i++ {
+		var age int
+		fmt.Print("나이 입력 : ")
+		fmt.Scanln(&age)
+		switch {
+		case age < 12:
+			vs[i] = visitor{age: age, cost: 5000}
+		case age >= 12 && age < 65:
+			vs[i] = visitor{age: age, cost: 10000}
+		default:
+			vs[i] = visitor{age: age, cost: 12000}
+		}
+	}
+	fmt.Printf("total price : %d", calculateCost(vs))
+
 }
