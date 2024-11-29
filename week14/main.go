@@ -3,21 +3,22 @@ package main
 import "fmt"
 
 func main() {
-	ages := make(map[string]int)
-	var name string
-	var age int
-	for {
-		fmt.Print("이름 입력(exit to 'q'): ")
-		fmt.Scanln(&name)
-		if name == "q" {
-			break
-		}
-		fmt.Print("Enter your age : ")
-		fmt.Scanln(&age)
-		ages[name] = age
+	var student1 struct {
+		id   int
+		name string
+		gpa  float32
 	}
-	// map에 range 사용하면 key, value로 나옴
-	for name, age := range ages {
-		fmt.Printf("%s is %d\n", name, age)
+	student1.id = 20241234
+	student1.name = "whdo"
+	student1.gpa = 4.5
+	fmt.Printf("%d %s %f\n", student1.id, student1.name, student1.gpa)
+	var student2 struct {
+		id   int
+		name string
+		gpa  float32
 	}
+	student2.id = 20241234
+	student2.name = "dddd"
+	student2.gpa = 4.7
+	fmt.Printf("%d %s %f\n", student2.id, student2.name, student2.gpa)
 }
